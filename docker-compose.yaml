@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  zsz-rbot:
+    build:
+      context: .
+    container_name: zsz-rbot
+    restart: always
+    ports:
+      - "9527":"9527"
+    volumes:
+      - ./supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+      - ./client_config:/app/client_config
+      - ./logs/log_r_client.log.log:/var/log/log_r_client.log.log
+      - ./logs/log_r_client.log_err.log:/var/log/log_r_client_err.log.log
